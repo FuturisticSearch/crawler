@@ -14,7 +14,7 @@ app.get("/search", async (req, res) => {
 
   try {
     // 1️⃣ Query Common Crawl CDX index
-    const cdxUrl = `http://index.commoncrawl.org/CC-MAIN-2026-01-index?url=*${encodeURIComponent(q)}*&output=json&limit=${MAX_RESULTS}`;
+    const cdxUrl = `http://index.commoncrawl.org/CC-MAIN-2026-04-index?url=*${encodeURIComponent(q)}*&output=json&limit=${MAX_RESULTS}`;
     const cdxResp = await fetch(cdxUrl);
     if (!cdxResp.ok) throw new Error("CDX query failed");
     const lines = (await cdxResp.text()).split("\n").filter(l => l.trim());
